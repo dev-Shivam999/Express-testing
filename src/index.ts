@@ -8,6 +8,12 @@ app.post('/sum',(req, res) => {
     const a=req.body.a
     const b=req.body.b
     const result = a+b
-    res.json(result)
+    res.json({sum:result})
+})
+app.post('/multi',(req, res) => {
+    const a=req.body.a
+    const b=req.body.b
+    const result = a*b
+    res.json({sum:result})
 })
 
