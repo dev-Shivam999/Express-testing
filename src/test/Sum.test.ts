@@ -1,8 +1,17 @@
 import { app } from "../index";
 import request from "supertest";
-import { describe, expect, it } from "vitest"
+import { describe, expect, it, vi } from "vitest";
 
-
+vi.mock("../db",()=>{
+    return{
+        client:{
+            request:{
+                create:vi.fn(),
+                delete:vi.fn()
+            }
+        }
+    }
+})
 describe("Express testing sum", () => {
     it("should", async () => {
         const res = await request(app).post("/sum").send({
